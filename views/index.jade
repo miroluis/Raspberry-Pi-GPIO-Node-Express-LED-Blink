@@ -14,7 +14,7 @@ block content
 				.row
 					.six.columns.centered.text-center 
 						h3#sliderOutput 20
-						input(type='range', min='1', max='180', step='1')
+						input(id = 'slide', type='range', min='1', max='180', step='1')
 						br
 						br
 						a#blinkButton.button.alert Slider GO!
@@ -31,6 +31,15 @@ block content
 						h4.subheader current position
 
 	script(type='text/javascript')
+		$("#slide").on('change', function(){
+			console.log('mudei ' + document.getElementById('slide').value);
+			//(("#slide").value)
+			//
+			//("#slide").value
+			document.getElementById("sliderOutput").innerHTML=document.getElementById('slide').value;
+			
+		});
+	
 		$("#blinkButton").on('click', function(){
 			$.get('/blink', function(){
 				});
